@@ -1,4 +1,5 @@
-# Usage
+# Azure Policy
+## Usage
 
 ```terraform
 
