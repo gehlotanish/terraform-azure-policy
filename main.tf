@@ -17,10 +17,10 @@ resource "azurerm_policy_definition" "main_policy" {
   parameters            = var.policy_parameters_content
 }
 
-resource "azurerm_subscription_policy_assignment" "example" {
+resource "azurerm_subscription_policy_assignment" "policy" {
   for_each             = var.policy_assignments
   name                 = each.value.name
-  policy_definition_id = coalesce(data.azurerm_policy_set_definition.exist_policy.*.id, azurerm_policy_definition.main_policy.*.id)
+  policy_definition_id = data.azurerm_policy_set_definition.exist_policy.0.id
   subscription_id      = data.azurerm_subscription.current.id
   location             = each.value.location
   parameters           = each.value.parameters

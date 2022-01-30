@@ -11,7 +11,6 @@ locals {
 
   policy_assignments = {
     production = {
-      exist_policy = "Enable Azure Monitor for VMs" 
       location     = "eastus2"
       parameters   = jsonencode({
         logAnalytics_1 = {
@@ -25,7 +24,7 @@ locals {
 
 module "policy_tags" {
   source  = "./policy"
-
+  exist_policy = "Enable Azure Monitor for VMs"
   policy_assignments        = local.policy_assignments
 }
 

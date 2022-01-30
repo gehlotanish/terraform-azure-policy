@@ -50,7 +50,6 @@ variable "policy_assignments" {
   description = "Map with maps to configure assignments. Map key is the name of the assignment."
   type = map(object({
     name            = string,
-    subscription_id = string,
     parameters      = string,
     location        = string,
   }))
