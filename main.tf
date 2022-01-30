@@ -20,7 +20,7 @@ resource "azurerm_policy_definition" "main_policy" {
 resource "azurerm_subscription_policy_assignment" "policy" {
   for_each             = var.policy_assignments
   name                 = each.value.name
-  policy_definition_id = data.azurerm_policy_set_definition.exist_policy.0.id
+  policy_definition_id = coalesce(data.azurerm_policy_set_definition.exist_policy.0.id, var.custom_policy_enabled == true ? azurerm_policy_definition.main_policy.0.id : null)
   subscription_id      = data.azurerm_subscription.current.id
   location             = each.value.location
   parameters           = each.value.parameters
