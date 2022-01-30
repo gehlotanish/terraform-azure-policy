@@ -1,8 +1,8 @@
 data "azurerm_subscription" "current" {}
 
 data "azurerm_policy_set_definition" "exist_policy" {
-  count                 = var.custom_policy_enabled ? 0 : 1
-  display_name          = var.exist_policy
+  count        = var.custom_policy_enabled ? 0 : 1
+  display_name = var.exist_policy
 }
 
 resource "azurerm_policy_definition" "main_policy" {
@@ -25,7 +25,7 @@ resource "azurerm_subscription_policy_assignment" "example" {
   location             = each.value.location
   parameters           = each.value.parameters
   identity {
-       type = "SystemAssigned" 
+    type = "SystemAssigned"
   }
 }
 
