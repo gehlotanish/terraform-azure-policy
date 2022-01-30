@@ -7,6 +7,7 @@ variable "custom_policy_enabled" {
 variable "exist_policy" {
   description = "The display name of the exiting policy definition."
   type        = string
+  default     = ""
 }
 
 variable "policy_name" {
@@ -18,6 +19,7 @@ variable "policy_name" {
 variable "policy_display_name" {
   description = "The display name of the policy definition."
   type        = string
+  default     = ""
 }
 
 variable "policy_description" {
@@ -29,11 +31,13 @@ variable "policy_description" {
 variable "policy_rule_content" {
   description = "The policy rule for the policy definition. This is a json object representing the rule that contains an if and a then block."
   type        = string
+  default     = ""
 }
 
 variable "policy_parameters_content" {
   description = "Parameters for the policy definition. This field is a json object that allows you to parameterize your policy definition."
   type        = string
+  default     = ""
 }
 
 variable "policy_mode" {
