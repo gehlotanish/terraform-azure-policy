@@ -1,3 +1,14 @@
+variable "custom_policy_enabled" {
+  description = "custom policy definition enabled if value is false set exist_policy variable"
+  type        = bool
+  default     = false
+}
+
+variable "exist_policy" {
+  description = "The display name of the exiting policy definition."
+  type        = string
+}
+
 variable "policy_name" {
   description = "The name of the policy definition. Defaults generated from display name"
   type        = string
@@ -34,12 +45,10 @@ variable "policy_mode" {
 variable "policy_assignments" {
   description = "Map with maps to configure assignments. Map key is the name of the assignment."
   type = map(object({
-    display_name  = string,
-    description   = string,
-    scope         = string,
-    parameters    = string,
-    identity_type = string,
-    location      = string,
+    name             = string,
+    subscription_id  = string,
+    parameters       = string,
+    location         = string,
   }))
 }
 
