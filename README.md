@@ -2,6 +2,11 @@
 
 ```terraform
 
+data "azurerm_log_analytics_workspace" "example" {
+  name                = "logs"
+  resource_group_name = "jenkins_group"
+}
+
 locals {
 
 PARAMETERS
