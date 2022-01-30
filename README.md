@@ -9,8 +9,6 @@ data "azurerm_log_analytics_workspace" "example" {
 
 locals {
 
-PARAMETERS
-
   policy_assignments = {
     production = {
       exist_policy = "Enable Azure Monitor for VMs" 
