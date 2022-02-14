@@ -24,9 +24,11 @@ locals {
 }
 
 module "policy_tags" {
-  source             = "./policy"
-  exist_policy       = "Enable Azure Monitor for VMs"
-  policy_assignments = local.policy_assignments
+  source                 = "./policy"
+  exist_policy           = "Enable Azure Monitor for VMs"
+  policy_assignments     = local.policy_assignments
+  initiative_enabled     = true
+  custom_policy_disabled = true
 }
 
 ```
