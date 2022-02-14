@@ -11,8 +11,7 @@ data "azurerm_policy_definition" "exist_policy" {
 }
 
 resource "azurerm_policy_definition" "main_policy" {
-  count = alltrue([var.initiative_enabled, var.custom_policy_disabled]) ? 0 : 1
-
+  count = var.custom_policy_disabled ? 0 : 1
   name         = var.policy_name
   display_name = var.policy_display_name
   description  = coalesce(var.policy_description, var.policy_display_name)
